@@ -1,6 +1,13 @@
 # pytranscripts
 An Open source👨‍🔧 Python Library for Automated classification of Electronic Medical records 
 
+## Installation
+To install , simply use
+
+```sh
+pip install pytranscripts
+```
+
 ## Pipeline Summary
 ![pipeline image](assets/edited_nlp_workflow.png)
 
