@@ -14,10 +14,10 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 class NLPModelTrainer:
-    def __init__(self, base_path,  refined_data_path, survey_data_path):
+    def __init__(self, base_path,  human_sheet_path, survey_data_path):
         print(f"{Fore.BLUE}Initializing NLPModelTrainer...")
         self.base_path = base_path
-        self.refined_data_path = refined_data_path
+        self.human_sheet_path = human_sheet_path
         self.survey_data_path = survey_data_path
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.class_mapping = {}
@@ -37,7 +37,7 @@ class NLPModelTrainer:
     def load_and_clean_data(self):
         print(f"{Fore.YELLOW}Loading and cleaning data...")
         # Load and clean the dataset
-        df = pd.read_excel(self.refined_data_path)
+        df = pd.read_excel(self.human_sheet_path)
         df = df.drop_duplicates(subset=['Quotation Content'])
 
         # Assign numerical labels
@@ -232,7 +232,7 @@ class NLPModelTrainer:
 if __name__ == "__main__":
     trainer = NLPModelTrainer(
         base_path = '/content/drive/',
-        refined_data_path="/content/drive/MyDrive/Kalu+Deola/NLP NEW/Refined_targets.xlsx",
+        human_sheet_path="/content/drive/MyDrive/Kalu+Deola/NLP NEW/Refined_targets.xlsx",
         survey_data_path="/content/drive/MyDrive/Kalu+Deola/NLP NEW/SURVEY_TABLE.xlsx"
     )
     
