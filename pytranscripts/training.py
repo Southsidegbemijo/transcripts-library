@@ -116,14 +116,11 @@ class NLPModelTrainer:
             learning_rate=2e-5,
             per_device_train_batch_size=2,
             per_device_eval_batch_size=2,
-            num_train_epochs=10,
+            num_train_epochs=5,
             weight_decay=0.01,
             evaluation_strategy="epoch",
             save_strategy="epoch",
             load_best_model_at_end=True,
-            push_to_hub=True,
-            hub_model_id=hub_model_id,
-            hub_strategy="end",
         )
 
         print(f"{Fore.YELLOW}Starting training for model: {hub_model_id}...")
